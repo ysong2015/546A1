@@ -1,8 +1,12 @@
 var moduleObj = module.exports = {};
 
 moduleObj.shallowClone = function (baseObject) {
-    var copyObject = baseObject;
-    return copyObject;
+    if (typeof baseObject === 'object') {
+        var copyObject = baseObject;
+        return copyObject;
+    } else {
+        throw "Invaild input. The input should be an object type."
+    }
 };
 
 moduleObj.deepClone = function (baseObject) {
@@ -10,9 +14,9 @@ moduleObj.deepClone = function (baseObject) {
         return baseObject;
     }
     var copyObject = baseObject.constructor(); //give copyObject the original obj's constructor
-    for (var key in baseObject){
+    for (var key in baseObject) {
         if (baseObject.hasOwnProperty(key)) {
-            copyObject[key]=moduleObj.deepClone(baseObject[key]);            
+            copyObject[key] = moduleObj.deepClone(baseObject[key]);
         }
     }
     return copyObject;
