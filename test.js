@@ -26,5 +26,8 @@ var arr = [1,2,3,4,5];
 console.log(arrayModule.shallowClone(arr));
 console.log(arrayModule.randomized(arr));
 
-var date = new Date(2016,2,1);
+var date = new Date(2016,1,1); // Feb/1/2016
 console.log(dateModule.daysUntil(date));
+console.log(dateModule.daysLeftInYear());
+console.log(dateModule.daysSince(date));
+console.log(dateModule.nextFridayTheThirteenth());
