@@ -1,4 +1,5 @@
 var moduleString = module.exports = {};
+var arrayModule = require("./arrays.js")
 
 moduleString.occurrencesOfSubstring = function (main, substr){
     var lastIndex = 0;
@@ -33,14 +34,6 @@ moduleString.occurrencesOfSubstringInsensivie = function (main, substr){
 
 moduleString.randomizeSentences = function (paragraph) {
     var paragraphArr = paragraph.split(/[\\.!\?,]/); //Split the text when meet ,.!?
-    paragraphArr.move(0,paragraphArr.length-1);
-    return paragraphArr.join(' ');           
-};
-
-// var getRandomInt = function (min, max) {
-//     return Math.floor(Math.random()*(max-min+1) + min);
-// };
-
-Array.prototype.move = function (from, to) {
-    this.splice(to, 0, this.splice(from,1)[0]);
+    
+    return arrayModule.randomized(paragraphArr).join(' ');           
 };
